@@ -125,6 +125,7 @@ blockquote {
 /**
  * Code formatting
  */
+/* use google-code-prettify
 pre,
 code {
     font-size: 15px;
@@ -147,7 +148,20 @@ pre {
         padding-left: 0;
     }
 }
+*/
+pre {
+    font-size: 15px;
+    padding: 8px 12px;
+    overflow-x: scroll;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
 
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
 
 
 /**

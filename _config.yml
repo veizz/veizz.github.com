@@ -24,7 +24,7 @@ v_menus:
       tip: 一些demo
 
     - title: 分类
-      url: /categories/
+      url: /categories.html
       tip: 博客分类
 
     - title: 关于

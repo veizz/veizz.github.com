@@ -2,7 +2,7 @@
 layout: post  
 title:  "如何在github上面建立一个jekyll博客"  
 date:   2014-10-24 01:31:55  
-categories: jekyll update  
+categories: cate1
 author: veizz  
 meta:   '使用jekyll的初步教程'  
 ---

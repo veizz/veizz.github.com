@@ -1,11 +1,9 @@
 ---
 layout: page
-title: About
+title: 关于
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
-
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+  夫80后者，初从文，未未及义务教育之免费，不逮高等学校之分配，时值扩招，过五关、斩六将，硕博相继，数年乃成，负债十万，觅生计，十年无休，披星戴月，秉烛达旦，积蓄十万。楼市暴涨，不足购房，遂投股市，翌年缩至万余，抑郁成疾。医保曰：不符大病之条例，拒赔！乃倾其所有，入院一周病无果，因欠费被逐院门。友怜之，赊三鹿一包，冲而饮之，卒！
+  
+  跟80后一起长大的90后，工作两年有余，自觉无甚积累，惭愧。

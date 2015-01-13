@@ -1,12 +1,33 @@
 # Site settings
-title: 没想好标题
+# 修改了这个配置文件要重启jekyll才能看到修改后的效果
+title: 小网站
 email: veizzsmile#gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-    沉思录，学习笔记
+    妈妈说，不要随随便便上小网站
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://veizz.github.io" # the base hostname & protocol for your site
 twitter_username: veizz
 github_username:  veizz
 
 # Build settings
-markdown: kramdown
+#markdown: kramdown
+#highlighter: true
+markdown: redcarpet
+#redcarpet:
+#    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
+#
+
+# 主菜单，按序排列
+v_menus:
+    - title: 实验室
+      url: /labs/
+      tip: 一些demo
+
+    - title: 分类
+      url: /categories/
+      tip: 博客分类
+
+    - title: 关于
+      url: /about/
+      tip: 关于我
+    

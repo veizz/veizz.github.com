@@ -7,16 +7,51 @@ layout: default
   <h1 class="page-heading">Posts</h1>
 
   <ul class="post-list">
-    {% for post in site.posts %}
+      {% for post in paginator.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
       </li>
-    {% endfor %}
+      {% endfor %}
   </ul>
+
+  {% if paginator.total_posts > paginator.per_page %}
+    <nav>
+    <ul id="post-pagination" class="pagination">
+      {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1 %}
+          <li> <a href="/" aria-label="Previous">Previous</a></li>
+        {% else %}
+          <li> <a href="{{ paginator.previous_page_path }}" aria-label="Previous">Previous</a></li>
+        {% endif %}
+      {% else %}
+          <li class="disabled"> <span>Previous</span></li>
+      {% endif %}
+
+      {% if paginator.page == 1 %}
+         <li class="active"><a>1</a></li>
+      {% else %}
+         <li><a href="/">1</a></li>
+      {% endif %}
+
+      {% for count in (2..paginator.total_pages) %}
+          {% if count == paginator.page %}
+            <li class="active"><a>{{ count }}</a></li>
+          {% else %}
+            <li><a href="/p{{ count }}">{{ count }}</a></li>
+          {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <li><a href="{{ paginator.next_page_path }}" aria-label="Next">Next</a></li>
+      {% else %}
+        <li class="disabled"><span>Next</span></li>
+      {% endif %}
+    </ul>
+    </nav>
+  {% endif %}
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 

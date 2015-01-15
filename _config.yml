@@ -16,6 +16,8 @@ markdown: redcarpet
 #redcarpet:
 #    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
 #
+paginate: 10
+paginate_path: "p:num"
 
 # 主菜单，按序排列
 v_menus:

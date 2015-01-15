@@ -1,6 +1,6 @@
 veizz.github.com
 ================
 
-veizz.github.com || veizz.github.io
+[veizz.me](http://www.veizz.me/) || [veizz.github.io](http://www.veizz.me)  
 
 home page

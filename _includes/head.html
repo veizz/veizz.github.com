@@ -4,8 +4,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="baidu-site-verification" content="bTRVso5SWw" />
 
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="description" content="{{ site.description }}">
+    {% if page.title %}
+        <title>{{ page.title }}</title>
+        <meta name="description" content="{{ page.meta }}">
+    {% else %}
+        <title>{{ site.title }}</title>
+        <meta name="description" content="{{ site.description }}">
+    {% endif %}
 
     <link rel="stylesheet" href="{{ "/static/css/bootstrap.min.css" | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">

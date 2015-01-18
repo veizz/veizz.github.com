@@ -8,6 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://veizz.github.io" # the base hostname & protocol for your site
 twitter_username: veizz
 github_username:  veizz
+weibo_username:  veizz
 
 # Build settings
 #markdown: kramdown
@@ -32,4 +33,7 @@ v_menus:
     - title: 关于
       url: /about/
       tip: 关于我
-    
+# 去除掉一些不开放出来的文件
+exclude:
+    - CNAME
+    - readme.md

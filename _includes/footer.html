@@ -1,5 +1,13 @@
 <footer class="site-footer">
 
+<div class="wrapper print-footer">
+    <!-- 只在打印时显示 -->
+    <p>本文来自于网站{{ site.url }}</p>
+    <p id="print-page-url"></p>
+    <script type="text/javascript">
+        document.getElementById('print-page-url').innerText = location.href;
+    </script>
+</div>
   <div class="wrapper">
 
     <h2 class="footer-heading">{{ site.title }}</h2>

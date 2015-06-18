@@ -99,6 +99,10 @@
     padding: $spacing-unit 0;
 }
 
+.site-footer .print-footer{
+    display:none;
+}
+
 .footer-heading {
     font-size: 18px;
     margin-bottom: $spacing-unit / 2;
@@ -240,3 +244,24 @@
         }
     }
 }
+
+@media print {
+    .site-header {
+        display:none;
+    }
+    #SOHUCS {
+        display:none;
+    }
+    .site-footer {
+        border-top:none;
+    }
+    .site-footer .wrapper{
+        display:none;
+    }
+    .site-footer .print-footer{
+        display:block;
+        font-size:12px;
+        color:grey;
+    }
+}
+

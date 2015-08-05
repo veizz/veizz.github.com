@@ -38,7 +38,7 @@ meta: 关于chrome的safebrowsing服务，开发者工具中时间线各参数�
 **这个5000ms是chrome安全浏览服务校验一个url是否安全的超时时间。如果在这个时间内服务未响应，就认为链接是安全的，并把当前校验取消**。
 
 #### safe browsing服务
-查看用户访问的url是否安全的一个服务，具体可以参考这里：
+查看用户访问的url是否安全的一个服务，具体可以参考这里：  
 [http://blog.chromium.org/2012/01/all-about-safe-browsing.html](http://blog.chromium.org/2012/01/all-about-safe-browsing.html)  
 [http://www.google.com/transparencyreport/safebrowsing/](http://www.google.com/transparencyreport/safebrowsing/)  
 [safe browsing 服务调用的api文档](https://developers.google.com/safe-browsing/lookup_guide)  

@@ -13,33 +13,4 @@ layout: default
     {{ content }}
   </article>
   <hr>
-  <style>
-      /* 不显示评论框的头像 */
-      #SOHUCS .block-head-w {
-          display:none;
-      }
-      #SOHUCS .block-post-w {
-          padding:0px !important;
-      }
-      #changyan_floatbar_wrapper{
-          display:none !important;
-      }
-  </style>
-  <div id="SOHUCS" sid="{{ page.v_pageid }}"></div> 
-  <script>
-      // 畅言加载代码
-      (function(){
-          var appid = 'cyrA7hqEb',
-          conf = 'prod_6e355afdbc71bc457cbac08f71f4ab69';
-          var doc = document,
-          s = doc.createElement('script'),
-          h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-          s.type = 'text/javascript';
-          s.charset = 'utf-8';
-          s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
-          h.insertBefore(s,h.firstChild);
-          window.SCS_NO_IFRAME = true;
-      })()
-  </script>      
-
 </div>

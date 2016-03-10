@@ -13,7 +13,7 @@ weibo_username:  veizz
 # Build settings
 #markdown: kramdown
 #highlighter: true
-markdown: redcarpet
+markdown: kramdown
 #redcarpet:
 #    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
 #
@@ -37,3 +37,5 @@ v_menus:
 exclude:
     - CNAME
     - readme.md
+
+gems: [jekyll-paginate]

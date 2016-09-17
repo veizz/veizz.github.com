@@ -70,8 +70,9 @@ sudo gem install cocoapods
 
 > 如果mac上安装的ruby版本过低（低于2.2.0）的话，需要安装新版本的ruby。  
 > 推荐使用rvm（或者自行查询ruby版本更新方法）   
->
-> ```curl -L get.rvm.io | bash -s stable  &&  rvm install 2.3.1  ```  
+>  
+> ```curl -L get.rvm.io | bash -s stable```  
+> 然后安装2.3.1版本的ruby ```rvm install 2.3.1  ```   
 > 之后在命令行输入`ruby -v`可以看看版本号  
 > ruby 升级完成后，再次执行`sudo gem install cocoapods`  
 
@@ -80,6 +81,7 @@ sudo gem install cocoapods
 
 cocoapods安装依赖
 修改Podfile，文件中如下内容：
+
 ```
 # =====================================
 # Podfile
@@ -116,6 +118,7 @@ target 'Myapp' do
 end
 # file end=====================================
 ```
+
 ```lang=shell
 # 执行pod install, 进行安装
 pod install
@@ -130,6 +133,7 @@ pod install
 首先打开项目名带`.xcworkspace`的文件，Pods和项目名应在平级目录中
 
 在项目中创建一个继承于`UIView`的类，名字自定，这里叫`ReactView`
+
 ```lang=oc
 // ReactView.h
 
@@ -140,6 +144,7 @@ pod install
 ```
 
 创建一个视图控制器
+
 ```lang=oc
 // ViewController.m
 
@@ -148,6 +153,7 @@ pod install
 @end
 ```
 在视图控制器里面添加RCTRootView，首先先用`index.ios.bundle`的URI来初始化`RCTRootView`
+
 ```lang=oc
 # 这里是js传过来的URL
 # OC从这个url拉取js代码，解析并渲染
@@ -160,6 +166,7 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation mo
 ### 启动开发服务
 
 在js代码根目录(js_compoments目录)下启动React Native服务
+
 ```
 node node_modules/react-native/local-cli/cli.js start
 # 还可以把这条指令添加到package.json里面
@@ -171,6 +178,7 @@ node node_modules/react-native/local-cli/cli.js start
 
 ### 更新App Transport Security
 在iOS 9以上的系统中，除非明确指明，否则应用无法通过http协议连接到localhost主机，需要在`Info.plist`文件中将`localhost`列为App Transport Security的例外
+
 ```
 <key>NSAppTransportSecurity</key>
 <dict>
@@ -186,6 +194,7 @@ node node_modules/react-native/local-cli/cli.js start
 ```
 
 ### 操作完成后的目录结构
+
 ```lang=shell
 .
 ├── Myapp

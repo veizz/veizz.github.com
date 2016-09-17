@@ -58,6 +58,12 @@ touch index.ios.js
 node node_modules/react-native/local-cli/cli.js start
 # 之后在浏览器里面访问http://localhost:8081/index.ios.bundle?platform=ios
 # 等一会儿之后，可以看到很多的js代码，到此时，已经准备好js
+
+# 还可以把这条指令添加到package.json里面
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+# 之后就可以使用npm start来启动服务
 ```
 
 ### 添加依赖
@@ -162,18 +168,6 @@ NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.b
 #核心代码，初始化一个RCTRootView。moduleName是js模块的名字，Properties可以传递字典类型的属性给js
 RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName:@"SimpleApp" initialProperties:nil launchOptions:nil];
 
-```
-### 启动开发服务
-
-在js代码根目录(js_compoments目录)下启动React Native服务
-
-```
-node node_modules/react-native/local-cli/cli.js start
-# 还可以把这条指令添加到package.json里面
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
-  },
-# 之后就可以使用npm start来启动服务
 ```
 
 ### 更新App Transport Security

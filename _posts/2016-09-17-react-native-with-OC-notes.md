@@ -68,14 +68,12 @@ node node_modules/react-native/local-cli/cli.js start
 sudo gem install cocoapods
 ```
 
-> 如果mac上安装的ruby版本过低（低于2.2.0）的话，需要安装新版本的ruby。
-> 推荐使用rvm（或者自行查询ruby版本更新方法）
-> ```lang=shell
-> curl -L get.rvm.io | bash -s stable
-> rvm install 2.3.1
-> ```
-> 之后在命令行输入`ruby -v`可以看看版本号
-> ruby 升级完成后，再次执行`sudo gem install cocoapods`
+> 如果mac上安装的ruby版本过低（低于2.2.0）的话，需要安装新版本的ruby。  
+> 推荐使用rvm（或者自行查询ruby版本更新方法）   
+>
+> ```curl -L get.rvm.io | bash -s stable  &&  rvm install 2.3.1  ```  
+> 之后在命令行输入`ruby -v`可以看看版本号  
+> ruby 升级完成后，再次执行`sudo gem install cocoapods`  
 
 创建cocoapods配置文件
 到ios的项目代码目录，执行`pod init`

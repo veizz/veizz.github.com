@@ -128,6 +128,8 @@ git subtree pull --prefix=rnComponents the_alias master
 
 使用`setTimeout`, `setInterval`等是非常危险的，如果在组件umount的时候忘记把它们清理掉的话。
 
-解决办法： [react-timer-mixin](https://github.com/reactjs/react-timer-mixin)  
+解决办法：  
+在较早的版本中，使用[react-timer-mixin](https://github.com/reactjs/react-timer-mixin)来解决问题  
+在当前的版本中（主要是当前使用ES6语法），在componentWillUmount函数里，调用clearTimeout, clearInterval等做清理工作  
 
 

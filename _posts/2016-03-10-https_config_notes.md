@@ -65,6 +65,7 @@ zhihu.com: geotrust
 startssl可以申请免费的证书，每个证书支持最多5个域名。
 
 ## 三. 关于nginx配置
+
 ```lang=nginx
 server {
     # 默认端口
@@ -116,6 +117,7 @@ server {
 
 }
 ```
+
 ## 四. 带来的影响
 
 * 用户访问时速度会比普通的http慢100ms左右
@@ -126,7 +128,8 @@ server {
 评级工具：[ssllabs](https://www.ssllabs.com)
 
 1）配置冲突，所有的server都要配置同样的ssl配置。  
-ssl的相关配置是写在server的大括号中的，但是当前大括号内的配置有可能会被其它大括号内的配置所覆盖。  
+ssl的相关配置是写在server的大括号中的，但是当前大括号内的配置有可能会被其它大括号内的配置所覆盖。    
+
 >（我猜是因为，早期的ssl配置不支持一个主机配置多个ssl的服务域名，后来就留下了一些bug）  
 
 2）nginx -V
@@ -142,7 +145,8 @@ openssl rsa -in server.key -out server.key.unsecure
 ```
 
 4）sni（`server name indication`）支持：
-就是一个ip上面通过不同的servername 去host多个域名的服务，当前版本的nginx一般都支持。但是有一些浏览器不支持。
+就是一个ip上面通过不同的servername 去host多个域名的服务，当前版本的nginx一般都支持。但是有一些浏览器不支持。  
+
 > （因为http1.0的协议在发送get请求的时候，只传了ip到服务端，header中没有host。导致服务端无法区分访问的是哪个域名，当前主流版本的http协议是1.1）  
 
 5）是否允许页面被使用在iframe中？  
@@ -151,11 +155,16 @@ openssl rsa -in server.key -out server.key.unsecure
     add_header X-Frame-Options SAMEORIGIN;     # 同源的才可以
     #add_header X-Frame-Options DENY;               # 不允许使用在iframe中
 ```
+
 6）在https的页面中，不允许直接访问http的资源。如script的src为http的，会被浏览器block掉。  
 例：
 `Mixed Content: The page at 'https://www.example.com/' was loaded over HTTPS, but requested an insecure script 'http://www.example.com/script/path'. This request has been blocked; the content must be served over HTTPS.`
 
+7）证书链不完整的问题  
+有时候在申请证书的时候会遇到只有单个证书，没有上级机构证书的情况。这时需要到申请证书的地方找到上线证书（包含完整证书链）。否则的话，在一些设备上会出现因为证书链不完整引起的无法创建连接的错误。  
+
 ## 六. 参考文档：
+
 nginx官方文档：  
 [http://nginx.org/en/docs/http/configuring_https_servers.html](http://nginx.org/en/docs/http/configuring_https_servers.html)  
 ssl相关配置参数文档：  

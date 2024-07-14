@@ -1,8 +1,7 @@
 ---
 v_pageid: 3143a288c57e1b1add7767a83be774b9
-layout: post  
 author: veizz,peggyw1217
-title: react-native和已有OC项目混合开发  
+title: react-native和已有OC项目混合开发
 date:  2016-09-17 14:52:56 +0800
 categories: react-native
 meta: react-native和已有OC项目混合开发,环境搭建简单介绍,搭配官方文档阅读更佳
@@ -10,7 +9,7 @@ meta: react-native和已有OC项目混合开发,环境搭建简单介绍,搭配�
 ---
 
 ## 注意
-本文档结合官方文档一起阅读，效果更好  
+本文档结合官方文档一起阅读，效果更好
 [中文翻译，0.30.0版](http://reactnative.cn/docs/0.30/integration-with-existing-apps.html)
 
 ## 思路
@@ -74,19 +73,19 @@ node node_modules/react-native/local-cli/cli.js start
 sudo gem install cocoapods
 ```
 
-> 如果mac上安装的ruby版本过低（低于2.2.0）的话，需要安装新版本的ruby。  
-> 推荐使用rvm（或者自行查询ruby版本更新方法）   
->  
-> `curl -L get.rvm.io | bash -s stable`  
-> 然后安装2.3.1版本的ruby `rvm install 2.3.1  `   
-> 之后在命令行输入`ruby -v`可以看看版本号  
-> ruby 升级完成后，再次执行`sudo gem install cocoapods`  
+> 如果mac上安装的ruby版本过低（低于2.2.0）的话，需要安装新版本的ruby。
+> 推荐使用rvm（或者自行查询ruby版本更新方法）
+>
+> `curl -L get.rvm.io | bash -s stable`
+> 然后安装2.3.1版本的ruby `rvm install 2.3.1  `
+> 之后在命令行输入`ruby -v`可以看看版本号
+> ruby 升级完成后，再次执行`sudo gem install cocoapods`
 
-创建cocoapods配置文件  
-到ios的项目代码目录，执行`pod init`  
+创建cocoapods配置文件
+到ios的项目代码目录，执行`pod init`
 
-cocoapods安装依赖  
-修改Podfile，文件中如下内容：  
+cocoapods安装依赖
+修改Podfile，文件中如下内容：
 
 ```
 # =====================================
@@ -133,7 +132,7 @@ pod install
 ```
 
 #### 解决Build Setting问题
-引入pods后需要在Build Setting的Other Linker Flags和Library Search Paths下面都加入`$(inherited)`，否则会报错  
+引入pods后需要在Build Setting的Other Linker Flags和Library Search Paths下面都加入`$(inherited)`，否则会报错
 
 ### 在OC的项目中，引入RCTRootView
 首先打开项目名带`.xcworkspace`的文件，Pods和项目名应在平级目录中

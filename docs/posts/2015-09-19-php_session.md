@@ -1,6 +1,5 @@
 ---
 v_pageid: 83a5e27687aa0185a055d0f9a511c493
-layout: post  
 author: veizz
 title: 【转】彻底理解PHP的SESSION机制
 date:  2015-09-19 15:59:45
@@ -9,8 +8,8 @@ meta: php的session的读写机制，默认session的文件实现方案的读写
 
 ---
 
-本文转自：[http://www.cnblogs.com/acpp/archive/2011/06/10/2077592.html](http://www.cnblogs.com/acpp/archive/2011/06/10/2077592.html)  
-根据自己的理解，做了一些修改  
+本文转自：[http://www.cnblogs.com/acpp/archive/2011/06/10/2077592.html](http://www.cnblogs.com/acpp/archive/2011/06/10/2077592.html)
+根据自己的理解，做了一些修改
 
 ### 一、默认机制，用磁盘文件来实现PHP会话
 php.ini配置
@@ -28,8 +27,8 @@ php.ini配置
     session.save_path =//好像不同的系统默认不一样，有一种设置是 "N;/path"
     //这是随机分级存储，这个样的话，垃圾回收将不起作用，需要自己写脚本
 
-session会判断当前是否有```$_COOKIE[session_name()];```  
-```session_name()```返回保存session_id的COOKIE键值，这个值可以从php.ini找到   
+session会判断当前是否有```$_COOKIE[session_name()];```
+```session_name()```返回保存session_id的COOKIE键值，这个值可以从php.ini找到
 
     session.name = PHPSESSID //默认值PHPSESSID
 
@@ -66,15 +65,15 @@ SESSION发出去的COOKIE一般属于即时COOKIE，保存在内存中，当浏�
 当不关闭浏览器的情况下，再次刷新，2和3都会有COOKIE传过来，但是找不到数据
 
 #### 5. 关于session的锁机制
-[http://blog.csdn.net/fdipzone/article/details/30846529](http://blog.csdn.net/fdipzone/article/details/30846529)  
+[http://blog.csdn.net/fdipzone/article/details/30846529](http://blog.csdn.net/fdipzone/article/details/30846529)
 
 当执行```session_start()```后，session会被锁住。直到页面执行完成。
 因此在页面执行其间，对sesssion进行写操作，只会保存在内存中，并不会写入session文件。
 而对session进行读取，则需要等待，直到session锁解开才能读取到。
 
-我们可以使用```session_write_close()```把数据写入session文件并结束session进程。这样就不需要等待页面执行完成，也能获取到执行到哪一步。  
-但这样有个问题，就是执行完```sesssion_write_close()```后，对session的任何写操作都不起作用。因为session进程已经结束。  
-因此需要再写session时，在前面加上```session_start()```  
+我们可以使用```session_write_close()```把数据写入session文件并结束session进程。这样就不需要等待页面执行完成，也能获取到执行到哪一步。
+但这样有个问题，就是执行完```sesssion_write_close()```后，对session的任何写操作都不起作用。因为session进程已经结束。
+因此需要再写session时，在前面加上```session_start()```
 
 ### 二、由用户自定义session处理机制
 php.ini配置：
@@ -87,7 +86,7 @@ php.ini配置：
 
 #### 1. session_start(),
 执行```open($save_path,$session_name)```打开session操作句柄
-```$save_path ```在```session.save_handler = files```的情况下它就是```session.save_path```，但是如果用户自定的话，这个两个参数都用不上，直接返回TRUE.  
+```$save_path ```在```session.save_handler = files```的情况下它就是```session.save_path```，但是如果用户自定的话，这个两个参数都用不上，直接返回TRUE.
 执行```read($id)```从中读取数据.这个```$id```参数是自动传递的就是```session_id()```,可以通过这个值进行操作。
 #### 2. 脚本执行结束
 
@@ -156,7 +155,7 @@ php.ini配置：
         return true;
     }
 
-### 三、使用redis进行处理session  
-在php 5.4之后，推荐使用面向对象的方法自定义session handler  
-参考php [SessionHandlerInterface](http://php.net/manual/zh/class.sessionhandlerinterface.php)  
-参考predis的session handler实现方案， [https://github.com/nrk/predis/blob/v1.0/src/Session/Handler.php](https://github.com/nrk/predis/blob/v1.0/src/Session/Handler.php)  
+### 三、使用redis进行处理session
+在php 5.4之后，推荐使用面向对象的方法自定义session handler
+参考php [SessionHandlerInterface](http://php.net/manual/zh/class.sessionhandlerinterface.php)
+参考predis的session handler实现方案， [https://github.com/nrk/predis/blob/v1.0/src/Session/Handler.php](https://github.com/nrk/predis/blob/v1.0/src/Session/Handler.php)

@@ -1,6 +1,5 @@
 ---
 v_pageid: 422b9e7560b027e816da90e638a17516
-layout: post  
 author: veizz
 title: react-native开发中遇到的一些坑（三 ）
 date:  2016-09-28 18:49:40 +0800
@@ -13,9 +12,9 @@ meta: 产品已上线，app中较大的模块使用react-native完成。记录�
 
 #### android向react-native传递json数据类型
 
-`JSONObject`是不能直接传递给react-native组件当成json对象来使用的，需要使用`WritableMap`，如果有必要的话，可以实现自己的`JSONObject`转`ReadableMap/WritableMap`的方法。在实现的时候注意，数字类型，在java中区分int, long, float, double，而js中，数字统一使用double(number)表示。  
-参考[https://github.com/kevinstumpf/react-native-branch](https://github.com/kevinstumpf/react-native-branch/blob/android-support/android/src/main/java/com/dispatcher/rnbranch/RNBranchModule.java)  
-如下：  
+`JSONObject`是不能直接传递给react-native组件当成json对象来使用的，需要使用`WritableMap`，如果有必要的话，可以实现自己的`JSONObject`转`ReadableMap/WritableMap`的方法。在实现的时候注意，数字类型，在java中区分int, long, float, double，而js中，数字统一使用double(number)表示。
+参考[https://github.com/kevinstumpf/react-native-branch](https://github.com/kevinstumpf/react-native-branch/blob/android-support/android/src/main/java/com/dispatcher/rnbranch/RNBranchModule.java)
+如下：
 
 ```java
 protected static WritableMap convertJsonToMap(JSONObject jsonObject) {
@@ -87,13 +86,13 @@ protected static WritableArray convertJsonToArray(JSONArray jsonArray) throws JS
 
 - - -
 
-#### xcode打包支持打包js文件代码  
+#### xcode打包支持打包js文件代码
 
 配置xcode run script, 在run script的时候，找不到npm，环境变量问题。
 
-解决办法： 
-一般是使用nvm安装的node，所以只要在要执行的脚本里，加载并执行nvm的脚本，就可以了。  
-参考： [https://github.com/facebook/react-native/pull/4015](https://github.com/facebook/react-native/pull/4015)  
+解决办法：
+一般是使用nvm安装的node，所以只要在要执行的脚本里，加载并执行nvm的脚本，就可以了。
+参考： [https://github.com/facebook/react-native/pull/4015](https://github.com/facebook/react-native/pull/4015)
 
 ```shell
 # Source the nvm.sh setup script
@@ -110,18 +109,18 @@ fi
 
 #### 一个奇怪的错误
 
-`Warning: There is an internal error in the React performance measurement code. Did not expect componentDidMount timer to start while render timer is still in progress for another instance.`  
-这个错误的提示并不太准确，一般是因为其它的问题。  
-在遇到的情况里，是先销毁了一个modal，然后再创建了另外一个modal，在创建新的modal的时候，传的参数有一个是未定义的，就遇到了这个提示。  
+`Warning: There is an internal error in the React performance measurement code. Did not expect componentDidMount timer to start while render timer is still in progress for another instance.`
+这个错误的提示并不太准确，一般是因为其它的问题。
+在遇到的情况里，是先销毁了一个modal，然后再创建了另外一个modal，在创建新的modal的时候，传的参数有一个是未定义的，就遇到了这个提示。
 
 - - -
 
 #### TextInput输入后，点击ScrollView或者ListView中元素，需要点击两次才能选中
 
-第一次点击键盘收起，第二次点击选中指定元素。在`ScrollView`的文档中有介绍，设置`keyboardDismissMode`, `keyboardShouldPersistTaps`两个属性一般可以解决问题  
+第一次点击键盘收起，第二次点击选中指定元素。在`ScrollView`的文档中有介绍，设置`keyboardDismissMode`, `keyboardShouldPersistTaps`两个属性一般可以解决问题
 
-解决办法：  
-给`ScrollView`或者`ListView`添加如下属性。  
+解决办法：
+给`ScrollView`或者`ListView`添加如下属性。
 
 ```
 keyboardShouldPersistTaps={true}
@@ -140,7 +139,7 @@ android下面`TextInput`，默认有padding, 需要手动设置padding, 才能�
 
 #### ScrollView
 
-在进行拖拽的时候，一般是先触发`scrollBeginDrag` , `scrollEndDrag`。如果有惯性滚动，会再触发`momentumScrollBegin`, `momentumScrollEnd`。  
+在进行拖拽的时候，一般是先触发`scrollBeginDrag` , `scrollEndDrag`。如果有惯性滚动，会再触发`momentumScrollBegin`, `momentumScrollEnd`。
 
-ios下面，调用`scrollTo`,会触发`momentumScrollEnd`,不会触发 `momentumScrollBegin`  
-android下面，调用`scrollTo`, 不会触发`momentumScrollEnd`，不会触发`momentumScrollBegin`  
+ios下面，调用`scrollTo`,会触发`momentumScrollEnd`,不会触发 `momentumScrollBegin`
+android下面，调用`scrollTo`, 不会触发`momentumScrollEnd`，不会触发`momentumScrollBegin`

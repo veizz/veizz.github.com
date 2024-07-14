@@ -1,10 +1,9 @@
 ---
 v_pageid: d6ff801940a852d0c7c6404b3870c51a
-layout: post  
 author: veizz
-title: react-native开发中遇到的一些坑   
+title: react-native开发中遇到的一些坑
 date:  2016-09-17 18:10:10 +0800
-categories: react-native  
+categories: react-native
 meta: 产品已经上线，在app中有一个较大的模块使用react-native完成，记录了在开发过程中遇到的一些坑及解决办法
 
 ---

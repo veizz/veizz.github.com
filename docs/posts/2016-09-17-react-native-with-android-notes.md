@@ -1,23 +1,22 @@
 ---
 v_pageid: 798d93c646d43bc212b8470133d8cce8
-layout: post  
-author: SeananXiang, zhuxindaba, veizz 
-title: react-native和已有android项目混合开发  
+author: SeananXiang, zhuxindaba, veizz
+title: react-native和已有android项目混合开发
 date:  2016-09-17 16:52:03 +0800
 categories: react-native
 meta: react-native添加到原生android项目中的记录, 参考官网文档阅读
 
 ---
 
-> 本文 是在 windows 下实践的总结，mac OX  下可能稍有不同，写作本文时，使用react-native 版本为0.30.0 、react 15.2.1  
+> 本文 是在 windows 下实践的总结，mac OX  下可能稍有不同，写作本文时，使用react-native 版本为0.30.0 、react 15.2.1
 > 本文主要作者[SeananXiang](https://github.com/SeananXiang)
 
 ## 环境搭建
 
-主要是依次安装 Python 2（注意 官方文档说目前不支持Python 3版本。） 、Node 、React Native命令行工具（react-native-cli）、Android Studio2.0或更高版本、Java Development Kit [JDK] 1.8 ， Android SDK 等， 这部分配置一般不会有问题，详见[中文文档](http://reactnative.cn/docs/0.30/getting-started.html#content)  
+主要是依次安装 Python 2（注意 官方文档说目前不支持Python 3版本。） 、Node 、React Native命令行工具（react-native-cli）、Android Studio2.0或更高版本、Java Development Kit [JDK] 1.8 ， Android SDK 等， 这部分配置一般不会有问题，详见[中文文档](http://reactnative.cn/docs/0.30/getting-started.html#content)
 
 ## 集成到现有工程
-先参考官方文档，这里有个中文翻译版: [嵌入到现有原生应用](http://reactnative.cn/docs/0.30/integration-with-existing-apps.html#content)   
+先参考官方文档，这里有个中文翻译版: [嵌入到现有原生应用](http://reactnative.cn/docs/0.30/integration-with-existing-apps.html#content)
 
 ### 主要步骤
 
@@ -38,7 +37,7 @@ npm install react react-native --save
 # 创建index.android.js, 添加示例代码
 touch index.android.js
 
-# 添加示例代码略，参考官方文档 
+# 添加示例代码略，参考官方文档
 
 # 启动服务
 node node_modules/react-native/local-cli/cli.js start
@@ -76,22 +75,22 @@ node node_modules/react-native/local-cli/cli.js start
 
 ```
   // 注意，这里的版本号跟所使用的react-native的版本号相关，记录时，react-native版本为0.30.0
-  compile "com.facebook.react:react-native:0.30.0"   
+  compile "com.facebook.react:react-native:0.30.0"
 ```
 
 ### 新建activity
 
 新建MyReactActivity，参考[官网代码-添加原生代码一节](http://facebook.github.io/react-native/releases/0.30/docs/integration-with-existing-apps.html#add-native-code)
 
-然后参考文档实现 `ReactInstanceManager`的生命周期  
+然后参考文档实现 `ReactInstanceManager`的生命周期
 
 ### 剩下的坑
 
-到这里貌似配置完成了，运行一把，崩掉了！恩，下面看看这几个坑，掉进去好几天！  
+到这里貌似配置完成了，运行一把，崩掉了！恩，下面看看这几个坑，掉进去好几天！
 
-#### 坑0. setUseDeveloperSupport(BuildConfig.DEBUG)   
+#### 坑0. setUseDeveloperSupport(BuildConfig.DEBUG)
 
-这只未true , 因 BuildConfig.DEBUG 默认为FALSE，即不会从服务器拉取js文件，而直接用android studio 运行工程，会跳过 js 打包的任务，最终会导致 APP 运行后连不上服务，crash!  
+这只未true , 因 BuildConfig.DEBUG 默认为FALSE，即不会从服务器拉取js文件，而直接用android studio 运行工程，会跳过 js 打包的任务，最终会导致 APP 运行后连不上服务，crash!
 
 #### 坑1. 加入 .setUseOldBridge(true)
 
@@ -112,15 +111,15 @@ defaultConfig {
         abiFilters "armeabi-v7a", "x86"
     }
 }
-``` 
- 
-    
+```
+
+
 #### 坑3. release 环境下打包
 
-a) 首先`setUseDeveloperSupport(false)`，因为正式打包发布后，除了热更新以外不应再从服务器拉取加载 js 文件，所有js文件都应编译后打包进安装包。  
+a) 首先`setUseDeveloperSupport(false)`，因为正式打包发布后，除了热更新以外不应再从服务器拉取加载 js 文件，所有js文件都应编译后打包进安装包。
 
-b) 其次、在 model 目录下 build.gralde 文件配置好release  keyStore 相关，这部分不详细介绍(android开发基础知识)  
-c) 打包js代码，放到指定目录  
+b) 其次、在 model 目录下 build.gralde 文件配置好release  keyStore 相关，这部分不详细介绍(android开发基础知识)
+c) 打包js代码，放到指定目录
 
 ```lang=shell
 react-native bundle --platform android \
@@ -133,7 +132,7 @@ react-native bundle --platform android \
 
 ```lang=shell
 --platform      # 打包平台  android
---dev           # 开发模式false 
+--dev           # 开发模式false
 --entry-file    # 原始JS文件名
 --bundle-output     # bundle文件输出目录， 配置到工程的 assets 目录下（若没有，先创建此目录）、
 --assets-       # 打包的资源目录 ， 配置在工程的 res/  目录下
@@ -144,8 +143,8 @@ react-native bundle --platform android \
 ## 其它要注意的地方
 
 #### class不能重名
-在集成到原生的项目中的时候，注意class名不能跟框架中class重名。给自己定义的react相关模块起名的时候，可以统一添加前缀。  
-如果重名的话，可能会遇到react-native模块中某元素不可用的问题。  
+在集成到原生的项目中的时候，注意class名不能跟框架中class重名。给自己定义的react相关模块起名的时候，可以统一添加前缀。
+如果重名的话，可能会遇到react-native模块中某元素不可用的问题。
 
 #### node版本的问题
 

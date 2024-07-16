@@ -4,7 +4,7 @@ author: veizz,peggyw1217
 title: react-native和已有OC项目混合开发
 date:  2016-09-17 14:52:56 +0800
 categories: react-native
-meta: react-native和已有OC项目混合开发,环境搭建简单介绍,搭配官方文档阅读更佳
+head: react-native和已有OC项目混合开发,环境搭建简单介绍,搭配官方文档阅读更佳
 
 ---
 

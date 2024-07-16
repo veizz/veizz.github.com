@@ -4,7 +4,7 @@ author: SeananXiang, zhuxindaba, veizz
 title: react-native和已有android项目混合开发
 date:  2016-09-17 16:52:03 +0800
 categories: react-native
-meta: react-native添加到原生android项目中的记录, 参考官网文档阅读
+head: react-native添加到原生android项目中的记录, 参考官网文档阅读
 
 ---
 

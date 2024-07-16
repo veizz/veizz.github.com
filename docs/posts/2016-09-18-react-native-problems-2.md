@@ -4,7 +4,7 @@ author: veizz
 title: react-native开发中遇到的一些坑（二）
 date:  2016-09-18 20:50:56 +0800
 categories: react-native
-meta: 产品已经上线，在app中有一个较大的模块使用react-native完成，记录了在开发过程中遇到的一些坑及解决办法
+head: 产品已经上线，在app中有一个较大的模块使用react-native完成，记录了在开发过程中遇到的一些坑及解决办法
 
 ---
 

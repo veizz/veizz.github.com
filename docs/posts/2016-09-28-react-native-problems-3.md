@@ -4,7 +4,7 @@ author: veizz
 title: react-native开发中遇到的一些坑（三 ）
 date:  2016-09-28 18:49:40 +0800
 categories: react-native
-meta: 产品已上线，app中较大的模块使用react-native完成。记录了一些遇到的问题，包含android向react-native模块传递数据，android和ios下样式区别，等
+head: 产品已上线，app中较大的模块使用react-native完成。记录了一些遇到的问题，包含android向react-native模块传递数据，android和ios下样式区别，等
 
 ---
 

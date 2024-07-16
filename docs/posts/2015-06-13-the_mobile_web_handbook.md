@@ -4,7 +4,7 @@ author: veizz
 title: 移动web手册-读书笔记
 date:  2015-06-13 14:03:57
 categories: books
-meta: 移动web手册是ppk大神的新书，主要介绍了在移动web开发和pc上的web开发不同的地方
+head: 移动web手册是ppk大神的新书，主要介绍了在移动web开发和pc上的web开发不同的地方
 
 ---
 
@@ -32,26 +32,28 @@ ppk给浏览器做了一个分类：内置浏览器，可下载浏览器，代�
 主要传达一种思想：不要以为webkit测完就完了，不要以为chrome测过就完了。有很多版本的webkit, 很多版本的chrome。厂商如三星，可能做自己的chrome——基于chrome开源版。
 
 ### 第四章，视口。viewport
-1、苹果创造了viewport, 其它公司复制了它。但是当前还没有标准文档。w3c相关的文档当前处在讨论中，还没定稿。http://dev.w3.org/csswg/css-device-adapt/
-2、pc上，一个像素就是一个屏幕上的一个最小单元。但在移动设备上，一个像素可以对应多个单元。因为要适配移动设备屏幕大小，视网膜屏等，一些浏览器会做一些缩放。
-3、浏览器支持的viewport的width最大值是10000，一般都不会达到这个值
-4、在旋转的时候，安卓的大多数浏览器，理想视口的宽度会改变。但ios的safari不会改变。猜是因为改变之后引起的页面重绘需要花费很多的计算资源。
-5、minimum-scale, maximum-scale。android的webkit默认的范围是25%~400%，即缩放因子是4，且不可修改。而在文档中（我猜是apple的文档）中，当不指定的时候，默认缩放范围是20%~500%,即缩放因子是5.在修改的时候，支持到的范围是10%~1000%。
-6、关于媒体查询，所有的媒体查询都需要一个媒体类型，通常使用all较好。因为当前有用的就只有print,其它的还需要考察。在使用媒体查询的时候，一般使用min或者max前缀。因为一般只关注一个范围。元素宽度一般是 像素px。其它 的单位未有说明。
+1. 苹果创造了viewport, 其它公司复制了它。但是当前还没有标准文档。w3c相关的文档当前处在讨论中，还没定稿。http://dev.w3.org/csswg/css-device-adapt/  
+2. pc上，一个像素就是一个屏幕上的一个最小单元。但在移动设备上，一个像素可以对应多个单元。因为要适配移动设备屏幕大小，视网膜屏等，一些浏览器会做一些缩放。  
+3. 浏览器支持的viewport的width最大值是10000，一般都不会达到这个值
+4. 在旋转的时候，安卓的大多数浏览器，理想视口的宽度会改变。但ios的safari不会改变。猜是因为改变之后引起的页面重绘需要花费很多的计算资源。
+5. minimum-scale, maximum-scale。android的webkit默认的范围是25%~400%，即缩放因子是4，且不可修改。而在文档中（我猜是apple的文档）中，当不指定的时候，默认缩放范围是20%~500%,即缩放因子是5.在修改的时候，支持到的范围是10%~1000%。  
+6. 关于媒体查询，所有的媒体查询都需要一个媒体类型，通常使用all较好。因为当前有用的就只有print,其它的还需要考察。在使用媒体查询的时候，一般使用min或者max前缀。因为一般只关注一个范围。元素宽度一般是 像素px。其它 的单位未有说明。
 
-    @media all and (max-width:400) and (orientation:portrait) and ((max-resolution:144dpi), (-webkit-max-device-pixel-ratio:1.5)){
-       /*
-       只有在布局视口不超过400px，设备处于竖屏模式，并且devicePixelRatio小于等于1.5的时候才会生效
-       */
-    }
+```css
+  @media all and (max-width:400) and (orientation:portrait) and ((max-resolution:144dpi), (-webkit-max-device-pixel-ratio:1.5)){
+      /*
+      只有在布局视口不超过400px，设备处于竖屏模式，并且devicePixelRatio小于等于1.5的时候才会生效
+      */
+  }
+```
 
-7、device-width和device-height, 对应javascript的screen.width, screen.height.这些属性有可能是理想窗口的尺寸，也有可能是设备像素的数量。如iphone5, 理想窗口是宽度320，但设备像素数量是640。
-8、em表现并没有期望中的那么好。有些浏览器不支持字体大小的缩放。
-9、device-pixel-ratio, js中对应的window.devicePixelRatio, 是设备物理像素和设备独立像素比例。1px在设备上用几个最小显示单位来表示。（-webkit-device-pixel-ratio, -webkit-=min-device-pixel-ratio）
-10、转向，在css中有orientation,  js中是screen.orientation(chrome中). 对应的事件有orientationchange, window.addEventListener('orientationchange', function(){});
+7. device-width和device-height, 对应javascript的screen.width, screen.height.这些属性有可能是理想窗口的尺寸，也有可能是设备像素的数量。如iphone5, 理想窗口是宽度320，但设备像素数量是640。
+8. em表现并没有期望中的那么好。有些浏览器不支持字体大小的缩放。
+9. device-pixel-ratio, js中对应的window.devicePixelRatio, 是设备物理像素和设备独立像素比例。1px在设备上用几个最小显示单位来表示。（-webkit-device-pixel-ratio, -webkit-=min-device-pixel-ratio）
+10. 转向，在css中有orientation,  js中是screen.orientation(chrome中). 对应的事件有orientationchange, window.addEventListener('orientationchange', function(){});
     *注意：deviceorientation是手机的运动就会触发的。不是屏蔽旋转。*
 
-11、resize事件不要轻易使用，safari在增减dom元素的时候都会触发resize事件。而有些状态栏改变的时候，等。在不同的浏览器上差异太大。
+11. resize事件不要轻易使用，safari在增减dom元素的时候都会触发resize事件。而有些状态栏改变的时候，等。在不同的浏览器上差异太大。
 
 ### 第五章：CSS。
 1、移动端好多问题的原因是定义中未明确区分viewport。像position:fixed。因为未指明是相对于哪个viewport做fixed,所以在一些浏览器上面会不一致（在手机上缩放一个网页的时候，顶部会不会被缩放到页面外？）。如vh, vw这两个单位。

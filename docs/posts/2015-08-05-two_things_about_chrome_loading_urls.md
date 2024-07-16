@@ -4,7 +4,7 @@ author: veizz
 title: chrome加载延迟的两个问题
 date:  2015-08-05 22:34:19
 categories: html5
-meta: 关于chrome的safebrowsing服务，开发者工具中时间线各参数的含义解释
+head: 关于chrome的safebrowsing服务，开发者工具中时间线各参数的含义解释
 
 ---
 

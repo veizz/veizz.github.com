@@ -4,7 +4,7 @@ author: veizz
 title: 响应式网页设计的两种方法
 date:  2015-08-05 21:39:22
 categories: html5
-meta: 使用viewport和rem来解决网页缩放问题的方法和一些问题说明
+head: 使用viewport和rem来解决网页缩放问题的方法和一些问题说明
 
 ---
 

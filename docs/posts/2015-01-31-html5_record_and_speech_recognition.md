@@ -4,7 +4,7 @@ author: veizz
 title: html5网页录音和语音识别
 date:  2015-01-31 21:03:18
 categories: html5
-meta: 使用userMedia, AudioContext接口实现录音，调整采样率等参数，将音频文件发送到语音识别服务器进行语音识别。部分特性需要浏览器支持。
+head: 使用userMedia, AudioContext接口实现录音，调整采样率等参数，将音频文件发送到语音识别服务器进行语音识别。部分特性需要浏览器支持。
 ---
 
 ### 背景

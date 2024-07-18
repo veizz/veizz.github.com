@@ -10,7 +10,7 @@ head: 产品已上线，app中较大的模块使用react-native完成。记录�
 
 > 整理下列问题时，react-native版本为0.32.0
 
-#### android向react-native传递json数据类型
+### android向react-native传递json数据类型
 
 `JSONObject`是不能直接传递给react-native组件当成json对象来使用的，需要使用`WritableMap`，如果有必要的话，可以实现自己的`JSONObject`转`ReadableMap/WritableMap`的方法。在实现的时候注意，数字类型，在java中区分int, long, float, double，而js中，数字统一使用double(number)表示。
 参考[https://github.com/kevinstumpf/react-native-branch](https://github.com/kevinstumpf/react-native-branch/blob/android-support/android/src/main/java/com/dispatcher/rnbranch/RNBranchModule.java)
@@ -86,7 +86,7 @@ protected static WritableArray convertJsonToArray(JSONArray jsonArray) throws JS
 
 - - -
 
-#### xcode打包支持打包js文件代码
+### xcode打包支持打包js文件代码
 
 配置xcode run script, 在run script的时候，找不到npm，环境变量问题。
 
@@ -107,7 +107,7 @@ fi
 
 - - -
 
-#### 一个奇怪的错误
+### 一个奇怪的错误
 
 `Warning: There is an internal error in the React performance measurement code. Did not expect componentDidMount timer to start while render timer is still in progress for another instance.`
 这个错误的提示并不太准确，一般是因为其它的问题。
@@ -115,7 +115,7 @@ fi
 
 - - -
 
-#### TextInput输入后，点击ScrollView或者ListView中元素，需要点击两次才能选中
+### TextInput输入后，点击ScrollView或者ListView中元素，需要点击两次才能选中
 
 第一次点击键盘收起，第二次点击选中指定元素。在`ScrollView`的文档中有介绍，设置`keyboardDismissMode`, `keyboardShouldPersistTaps`两个属性一般可以解决问题
 
@@ -131,13 +131,13 @@ keyboardDismissMode={'on-drag'}
 
 - - -
 
-#### TextInput在android下面的样式问题
+### TextInput在android下面的样式问题
 
 android下面`TextInput`，默认有padding, 需要手动设置padding, 才能把默认的padding清除掉。否则的话，当`TextInput`高度较小的时候，文字显示不出来.
 
 - - -
 
-#### ScrollView
+### ScrollView
 
 在进行拖拽的时候，一般是先触发`scrollBeginDrag` , `scrollEndDrag`。如果有惯性滚动，会再触发`momentumScrollBegin`, `momentumScrollEnd`。
 

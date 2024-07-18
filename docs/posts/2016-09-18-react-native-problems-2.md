@@ -9,14 +9,14 @@ head: 产品已经上线，在app中有一个较大的模块使用react-native�
 ---
 
 
-#### 当android的viewpagerandroid里的page数量不固定的时候
+### 当android的viewpagerandroid里的page数量不固定的时候
 
 可能会遇到问题。比如说这个：
 `The specified child already has a parent. You must call removeView() on the child's parent first`
 
 会报错的代码类似如下结构：
 
-```lang=js
+```js
 render(){
     return(
         <IndicatorViewPager>
@@ -34,7 +34,7 @@ render(){
 
 解决办法：修改成如下结构就好了
 
-```lang=js
+```js
 render(){
     return exists ?  this._genExists() : this._genNotExists();
 }
@@ -65,7 +65,7 @@ _genNotExists(){
 
 - - -
 
-#### 异步操作，组件已经被unmount
+### 异步操作，组件已经被unmount
 
 在有些时候，组件会被unmount，而有一些异步的请求，会在组件umount之前发出，在umount之后完成，这个时候异步请求的回调函数会执行，然后有一些setState的操作
 这样的setState操作会报一个warning:
@@ -80,13 +80,13 @@ _genNotExists(){
 
 - - -
 
-#### moment时间处理类，不能正确引入 locale 代码
+### moment时间处理类，不能正确引入 locale 代码
 
 在使用momentjs进行时间处理的时候，有时候需要国际化配置，使用本地语言。这时需要导入locale文件
 
 解决办法：
 
-```lang=js
+```js
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
@@ -96,13 +96,13 @@ moment.locale('zh-cn');
 
 - - -
 
-#### iOS和android共用react-native代码的时候，开发协作
+### iOS和android共用react-native代码的时候，开发协作
 
 使用react-native的代码，主要是因为，同样的代码可以同时在android和iOS平台下使用，那么，跟原来已经有的android和iOS项目混合开发的时候，怎么样协作呢？
 
 解决办法： 使用git subtree, 参考[这个链接](https://segmentfault.com/a/1190000003969060)
 
-```lang=shell
+```shell
 # 添加subtree
 git subtree add --prefix=rnComponents path-to-rn-project.git master
 
@@ -123,7 +123,7 @@ git subtree pull --prefix=rnComponents the_alias master
 
 - - -
 
-#### setTimeout, setInterval的使用
+### setTimeout, setInterval的使用
 
 使用`setTimeout`, `setInterval`等是非常危险的，如果在组件umount的时候忘记把它们清理掉的话。
 

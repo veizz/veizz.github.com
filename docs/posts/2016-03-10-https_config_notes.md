@@ -2,7 +2,7 @@
 v_pageid: 830bef08ac03463a870b5114843f32aa
 author: veizz
 title: https配置手记
-date:  2016-03-10 21:44:45 +0800
+date:  2016-03-10 21:44:45
 categories: server
 head: 之前给公司的线上服务添加了https的支持，留下一些记录，包含https创建连接过程、在nginx上配置https支持、及证书申请相关介绍
 

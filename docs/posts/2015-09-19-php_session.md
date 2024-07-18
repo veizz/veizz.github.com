@@ -5,7 +5,6 @@ title: 【转】彻底理解PHP的SESSION机制
 date:  2015-09-19 15:59:45
 categories: php
 head: php的session的读写机制，默认session的文件实现方案的读写锁；自定义session handler
-
 ---
 
 本文转自：[http://www.cnblogs.com/acpp/archive/2011/06/10/2077592.html](http://www.cnblogs.com/acpp/archive/2011/06/10/2077592.html)

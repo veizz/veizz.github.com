@@ -2,7 +2,7 @@
 v_pageid: 3143a288c57e1b1add7767a83be774b9
 author: veizz,peggyw1217
 title: react-native和已有OC项目混合开发
-date:  2016-09-17 14:52:56 +0800
+date:  2016-09-17 14:52:56
 categories: react-native
 head: react-native和已有OC项目混合开发,环境搭建简单介绍,搭配官方文档阅读更佳
 

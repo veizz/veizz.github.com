@@ -1,6 +1,6 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
-import { blog, hopeTheme } from 'vuepress-theme-hope'
+import { hopeTheme } from 'vuepress-theme-hope'
 import { blogPlugin } from '@vuepress/plugin-blog'
 
 export default defineUserConfig({
@@ -10,9 +10,14 @@ export default defineUserConfig({
     displayFooter: true,
     footer: "Powered by VuePress",
     logo: "/images/avatar.jpeg",
-    navbar: ["/posts/", "/about"],
+    navbar: ["/", "/article/", "/about"],
     blog: {
       name: "veizz",
+      description: "这个博主正在找个web前端开发工程师的工作. Looking for a job as Web Frontend Engineer",
+      medias: {
+        github: "https://github.com/veizz",
+        email: "mailto: veizzsmile@126.com",
+      }
     },
     plugins: {
       blog: true,

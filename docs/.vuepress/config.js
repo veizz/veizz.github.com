@@ -23,6 +23,7 @@ export default defineUserConfig({
       blog: true,
     },
   }),
+  lang: "zh-CN",
   title: "小网站",
   description: "一个平平无奇的小网站",
   pagePatterns: ["**/*.md", "!.vuepress", "!node_modules"],
